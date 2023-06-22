@@ -1,11 +1,12 @@
 const { Router } = require('express');
-const getAllVideoGames = require('../handlers/getGamesHandlers');
+const getAllVideoGames = require('../handlers/allGamesHandlers');
+const getIdVideoGames = require('../handlers/idGamesHandler');
 
 const gamesRoutes = Router();
 
 //Rutas
 gamesRoutes.get('/', getAllVideoGames)
-//videoRoutes.get('/byId/:id', getVideoGamesById)
+gamesRoutes.get('/:id', getIdVideoGames)
 
 module.exports = gamesRoutes;
 

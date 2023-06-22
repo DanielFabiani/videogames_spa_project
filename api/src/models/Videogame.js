@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true, // en caso que no tome la descripción
     },
     platforms: {
       type: DataTypes.STRING,
@@ -29,6 +29,10 @@ module.exports = (sequelize) => {
     released: {
       type: DataTypes.DATEONLY,
       allowNull: false,
+    },
+    website: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     rating: {
       type: DataTypes.FLOAT,

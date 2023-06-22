@@ -3,8 +3,6 @@ require("dotenv").config();
 const apiKey = process.env.API_KEY;
 const URL = `https://api.rawg.io/api/games?key=${apiKey}&page_size=40`;
 const pageNum = 4;
-//url api por id
-//const URLID = `https://api.rawg.io/api/games/${id}?key=${apiKey}`;
 
 //GET | /videogames
 const allDataGames = async ()=> {
@@ -43,10 +41,9 @@ const allDataGames = async ()=> {
   );
   //console.log(dataGames);
   //cantidad de juegos traídos
-  //console.log(dataGames.length);
+  console.log(dataGames.length);
 
   return dataGames;
 };
-
 
 module.exports = { allDataGames } ;
