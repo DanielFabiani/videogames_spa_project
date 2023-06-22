@@ -1,4 +1,4 @@
-# **Video Games SPA project, Full Stack**
+# **Proyecto SPA de Videojuegos, Full Stack**
 
 ¡Bienvenido/a al proyecto de Videojuegos Full Stack! Este es un proyecto individual en el cual he utilizado JavaScript como lenguaje de programación tanto en el frontend como en el backend. Para el frontend, he utilizado React y Redux para crear una interfaz de usuario interactiva y dinámica. Para el backend, he utilizado Express como framework y una base de datos SQL con Sequelize como ORM para gestionar los datos.
 
