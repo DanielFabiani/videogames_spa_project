@@ -40,7 +40,6 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Videogames, Genres } = sequelize.models;
 
 // Aca vendrían las relaciones
-//Band.belongsToMany(Genre, {through: 'BandGenre'});
 Videogames.belongsToMany(Genres, {through: 'gamesGenres', timestamps: false});
 Genres.belongsToMany(Videogames, {through: 'gamesGenres', timestamps: false});
 
