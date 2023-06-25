@@ -6,40 +6,6 @@ const { Op } = require('sequelize');
 
 const nameDataGames = async (name)=> {
   const URL = `https://api.rawg.io/api/games?search=${name}&key=${apiKey}&page_size=15`
-/* 
-  try {
-
-    const response = await axios.get(URL);
-    const apiData = response.data.results;
-
-    //console.log(apiData);
-    if (apiData) {
-      const filterApiData = apiData.filter( (e) => e.name.includes(name))
-      return filterApiData;
-    }
-    //db
-    const dbData = await Videogames.findAll({
-      where: {
-        name: {
-          // hace la comparación sin distinguir entre mayúsculas y minúsculas.
-          [Op.iLike]: `%${name}%`,
-        },
-      },
-      limit: 15,
-    })
-    //console.log(dbData);
-
-    if(dbData.length === 0){
-      throw new Error('No se encontraron videojuegos con este nombre en la BD')
-    }
-    return filterDbData;
-  } catch (error) {
-    throw new Error(error)
-  }
-
- */
-// ----------- mi código
-
   try {
     // busca en la api
     const response = await axios.get(URL);

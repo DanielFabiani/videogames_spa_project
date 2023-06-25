@@ -9,6 +9,4 @@ const getAllVideoGames = async (req, res) => {
   }
 }
 
-// const getIdVideGames
-
 module.exports =  getAllVideoGames; 
