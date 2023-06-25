@@ -13,7 +13,6 @@ const idDataGames = async (id) => {
     const URL = `https://api.rawg.io/api/games/${id}?key=${apiKey}&page_size=40`;
 
     const response = await axios.get(URL);
-
     const data = response.data;
     //console.log(data);
 

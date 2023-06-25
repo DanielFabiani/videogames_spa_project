@@ -39,6 +39,18 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Videogames, Genres } = sequelize.models;
 
+//creo valores de prueba para la DB
+/* const newGame = {
+  name: 'Danielito Game',
+  description: 'Una descripción',
+  platforms: 'PS4',
+  released: '2020-01-01',
+}
+Videogames.create(newGame)
+  .then((game) => console.log('Juego creado: ', game))
+  .catch((error)=> console.error('Error al crear el juego', error));
+ */
+
 // Aca vendrían las relaciones
 Videogames.belongsToMany(Genres, {through: 'gamesGenres', timestamps: false});
 Genres.belongsToMany(Videogames, {through: 'gamesGenres', timestamps: false});

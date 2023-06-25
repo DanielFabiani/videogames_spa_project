@@ -8,7 +8,6 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -24,7 +23,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     released: {
       type: DataTypes.DATEONLY,
@@ -37,7 +36,7 @@ module.exports = (sequelize) => {
     },
     rating: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     }
   });
 };
