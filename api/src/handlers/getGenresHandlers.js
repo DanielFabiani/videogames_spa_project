@@ -1,3 +1,4 @@
+const allGenres = require("../controllers/getGenresController");
 
 
 const getGenres = async (req, res) => {

@@ -8,34 +8,32 @@ const postDataVideoGames = async (
   released,
   website,
   rating,
-  genres
+  genres,
 ) => {
   const [ newVideogame, created ]= await Videogames.findOrCreate({
     where: { name },
     defaults: 
     {
-      name,
+      //name,
       description,
       platforms,
       image,
       released,
       website,
       rating,
+      genres,
     },
-    include:
-    {
+    include: {
       model: Genres,
-      attributes: ['name'],
-      through: { attributes: [] }
-    }
+      //attributes: [name],
+      attributes: {name: `${genres}`},
+      through: { attributes: [] },
+    },
     })
 
-    await newVideogame.setGenres(genres)
-    .then((game) => console.log('Juego creado: ', game))
-    .catch((error)=> console.error('Error al crear el juego', error));
     console.log(newVideogame);
     if(!created) {
-      console.log(newVideogame);
+      //console.log(newVideogame);
     };
 
     return newVideogame;
