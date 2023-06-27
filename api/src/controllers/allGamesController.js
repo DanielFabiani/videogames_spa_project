@@ -42,6 +42,7 @@ const allDataGames = async ()=> {
   //console.log(dataGames);
   //cantidad de juegos traídos
   console.log(dataGames.length);
+  //!findAll para traer los juego de la base
 
   return dataGames;
 };

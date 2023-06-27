@@ -1,4 +1,5 @@
-const { Videogames, Genres } = require('../db')
+const { Videogame, Genre } = require("../db");
+const { Op } = require("sequelize");
 
 const postDataVideoGames = async (
   name,
@@ -8,35 +9,49 @@ const postDataVideoGames = async (
   released,
   website,
   rating,
-  genres,
+  genre,
 ) => {
-  const [ newVideogame, created ]= await Videogames.findOrCreate({
-    where: { name },
-    defaults: 
-    {
-      //name,
-      description,
-      platforms,
-      image,
-      released,
-      website,
-      rating,
-      genres,
-    },
-    include: {
-      model: Genres,
-      //attributes: [name],
-      attributes: {name: `${genres}`},
-      through: { attributes: [] },
-    },
-    })
+  
+  const newGame = await Videogame.create({
+    name,
+    description,
+    platforms,
+    image,
+    released,
+    website,
+    rating,
+  });
 
-    console.log(newVideogame);
-    if(!created) {
-      //console.log(newVideogame);
-    };
+  const addGenres = await Genre.findAll({
+    where: {
+      name: genre,
+      
+    }
+  })
+// hago la relación
+  await newGame.addGenre(addGenres);
+// encuentro en la tabla el genero correspondiente al game
 
-    return newVideogame;
+  const gameRelation = await Videogame.findOne({
+    where: {
+      id: newGame.id,
+      //name: ['genre']
+    },
+    include: [{
+      model: Genre,
+      attributes: ['name'],
+      through: {
+        attributes: []
+      }
+    }]
+  })
+  //console.log('*******',gameRelation, '******');
+  return gameRelation;
 };
 
 module.exports = postDataVideoGames;
+
+
+/* {
+        [Op.in]: [genres ? genres : []] , // si no hay géneros, me devuelve un [] vacio
+      }, */

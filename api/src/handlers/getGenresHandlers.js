@@ -1,6 +1,5 @@
 const allGenres = require("../controllers/getGenresController");
 
-
 const getGenres = async (req, res) => {
   try {
     const genres = await allGenres() 
