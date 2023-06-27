@@ -1,5 +1,4 @@
 const { Videogame, Genre } = require("../db");
-const { Op } = require("sequelize");
 
 const postDataVideoGames = async (
   name,
@@ -35,7 +34,6 @@ const postDataVideoGames = async (
   const gameRelation = await Videogame.findOne({
     where: {
       id: newGame.id,
-      //name: ['genre']
     },
     include: [{
       model: Genre,
@@ -50,8 +48,3 @@ const postDataVideoGames = async (
 };
 
 module.exports = postDataVideoGames;
-
-
-/* {
-        [Op.in]: [genres ? genres : []] , // si no hay géneros, me devuelve un [] vacio
-      }, */
