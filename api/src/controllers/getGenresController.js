@@ -17,7 +17,7 @@ const allGenres = async () => {
     const genreData = nameGenres.map(name => ({ name }))
     await Genre.bulkCreate(genreData);
   //findOrCreate
-    console.log(genreData);
+    //console.log(genreData);
     return genreData;
   }
 

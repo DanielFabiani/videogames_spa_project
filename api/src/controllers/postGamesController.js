@@ -24,7 +24,6 @@ const postDataVideoGames = async (
   const addGenres = await Genre.findAll({
     where: {
       name: genre,
-      
     }
   })
 // hago la relación
@@ -43,6 +42,7 @@ const postDataVideoGames = async (
       }
     }]
   })
+  
   //console.log('*******',gameRelation, '******');
   return gameRelation;
 };
