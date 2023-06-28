@@ -23,6 +23,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
+      defaultValue: "Unknown",
       allowNull: true,
     },
     released: {
@@ -37,6 +38,7 @@ module.exports = (sequelize) => {
     rating: {
       type: DataTypes.FLOAT,
       allowNull: true,
+      defaultValue: "Unknown"
     }
   });
 };

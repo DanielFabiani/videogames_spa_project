@@ -1,6 +1,6 @@
 const axios = require("axios");
 const apiKey = process.env.API_KEY;
-const { Videogames, Genres } = require("../db")
+const { Videogame, Genre } = require("../db")
 const { Op } = require('sequelize');
 
 
@@ -18,6 +18,7 @@ const nameDataGames = async (name)=> {
         background_image,
         released,
         rating,
+        genres
       }) => ({
         id: id,
         name: name,
@@ -26,35 +27,59 @@ const nameDataGames = async (name)=> {
         image: background_image,
         released: released,
         rating: rating,
+        genres: genres.map(g => g.name)
       })
       );
     
-      console.log(apiData.length);
+      //console.log(apiData.length);
       //console.log(apiData);
       
-    //busca en la Base de Datos donde la columna name contenga el string name
-    const dbData = await Videogames.findAll({
+    //busca en la Base de Datos donde la columna name contenga el string name, y sus géneros
+    const dbData = await Videogame.findAll({
       where: {
         name: {
-          // hace la comparación sin distinguir entre mayúsculas y minúsculas.
+          // hace la comparación sin distinguir entre mayúsculas y minúsculas y espacios
           [Op.iLike]: `%${name}%`,
         },
       },
+      include: [{
+        model: Genre,
+        attributes: ['name'],
+        through: {
+          attributes: []
+        }
+      }],
       limit: 15,
     })
-    //console.log(dbData, 'NADA');
-
-    //const filterDbData = dbData.filter(g => g.name.includes(name))
+    const dbDataGames = dbData.map(({
+      id,
+      name,
+      description,
+      platforms,
+      background_image,
+      released,
+      rating,
+      Genres //nombre de la propiedad "Genres" para coincidir con la asociación en la consulta de la tabla
+    }) => ({
+      id: id,
+      name: name,
+      description: description,
+      platforms: platforms,
+      image: background_image,
+      released: released,
+      rating: rating,
+      genres: Genres.map(genre => genre.name)
+    }))
 
     //verifica si el arreglo está vacío, osea, si no se encontraron resultados en la API y en la Base de datos
-    if (apiData.length === 0 && dbData.length === 0) {
+    if (apiData.length === 0 && dbDataGames.length === 0) {
       return { message: 'No se encontraron videojuegos con este nombre en la API ni en la DB' }
     } 
     
   // crea un array con los resultados encontrados tanto en la Api como la BD
-    const totalData = [apiData, dbData];
+    const totalData = apiData.concat(dbDataGames);
+    console.log(totalData.length, 'API y DB');
 
-    //console.log(totalData, 'API y DB');
     return totalData;
   } 
   catch (error) {

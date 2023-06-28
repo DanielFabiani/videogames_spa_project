@@ -47,10 +47,9 @@ const allDataGames = async ()=> {
   );
   //console.log(apiDataGames);
   //cantidad de juegos traídos de la api
-  console.log(apiDataGames.length);
+  //console.log(apiDataGames.length);
 
   //findAll para traer los juego de la base de datos
-  
   const dbGames = await Videogame.findAll({
     include: [{
       model: Genre,
@@ -69,7 +68,7 @@ const allDataGames = async ()=> {
     background_image,
     released,
     rating,
-    Genres
+    Genres //nombre de la propiedad "Genres" para coincidir con la asociación en la consulta de la tabla
   }) => ({
     id: id,
     name: name,
@@ -81,14 +80,12 @@ const allDataGames = async ()=> {
     genres: Genres.map(genre => genre.name)
   }))
   
-
-  console.log(dbDataGames);
-  console.log(dbDataGames.length);
+  //console.log(dbDataGames);
+  //console.log(dbDataGames.length);
   
   //concateno los dos arreglos para traer todos los juegos
   const allGames = apiDataGames.concat(dbDataGames);
   console.log(allGames.length);
-
 
   return allGames;
 };
