@@ -1,0 +1,64 @@
+
+.landingPageContainer{
+  position: relative;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-image: url(../LandingPage/GowLandingPage0.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+  };
+  10% {
+    opacity: 1;
+    filter: brightness(3) blur(10px) ;
+  }
+}
+
+.landingPageText{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  text-align: center;
+  color: #cedbe4;
+  font-size: 48px;
+  font-weight: 300;
+
+}
+.landingPageText p{
+  margin: 6px 0;
+}
+
+.landingPageButton{
+  width: fit-content;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* .backgroundImage{
+  position: relative;
+  z-index: 0;
+}
+
+.backgroundImage img{
+  background-size: cover;
+  width: 100%;
+  height: auto; 
+}*/
+
+

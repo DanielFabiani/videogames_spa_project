@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+//import axios from "axios";
+import LandingPage from './views/LandingPage/LandingPage.jsx';
+
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Videogames</h1>
+      <Routes>
+        <Route path="/" element={ <LandingPage/> } />
+      </Routes>
     </div>
   );
 }
