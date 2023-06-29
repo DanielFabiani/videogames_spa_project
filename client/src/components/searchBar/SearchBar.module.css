@@ -1,0 +1,19 @@
+.searchBarContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px;
+}
+.searchBarContainer input{
+  border: 2px solid #d6c689;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+/* 
+.searchBarContainer input:focus{
+  outline: none;
+} */

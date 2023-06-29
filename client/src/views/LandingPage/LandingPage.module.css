@@ -50,6 +50,15 @@
   z-index: 1;
 }
 
+.landingPageButton a{
+  color: #cedbe4;
+  text-decoration: none;
+}
+.landingPageButton:hover a{
+  color: #192b37;
+  text-decoration: none;
+}
+
 /* .backgroundImage{
   position: relative;
   z-index: 0;

@@ -15,7 +15,7 @@
   background-color: #0e1213;
   padding: 16px 24px;
   border-radius: 8px;
-  transition: .3s;
+  transition: .5s;
 }
 
 .primaryButton:hover span{

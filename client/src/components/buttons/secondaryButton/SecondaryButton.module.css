@@ -1,0 +1,28 @@
+.secondaryButton{
+  border: 0;
+  background-color: #d6c689;
+  border-radius: 8px;
+  color: #192b37;
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.secondaryButton span{
+  /* background-color: #0e1213; */
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: .5s;
+}
+
+.secondaryButton:hover span{
+  background-color: #0e1213;
+  color: #d6c689;
+}
+
+.secondaryButton:active{
+  transform: scale(0.9)
+}
