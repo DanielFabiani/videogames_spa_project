@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Card from '../card/Card';
+import styles from './Cards.module.css';
 
 const Cards = () => {
   // se fija el estado global de Videogames
   const Videogames = useSelector(state => state.Videogames)
   return (
-    <div>
+    <div className={styles.cardsContainer}>
       {
         Videogames.map((game) => {
           return (
@@ -15,10 +16,11 @@ const Cards = () => {
               key={game.id}
               id={game.id}
               name={game.name}
-              /* genres={game.genres.map((gen) => gen.name)} */
+              platforms={game.platforms}
               image={game.image}
-              /* platforms={game.platforms.map((platform) => platform.name)} */
+              released={game.released}
               rating={game.rating}
+              genres={game.genres}
           />)
         })
       }

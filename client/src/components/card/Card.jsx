@@ -1,14 +1,14 @@
 import React from 'react';
 
 const Card = (props) => {
-  const id = props.id;
+  //const id = props.id;
 
   return (
     <div>
-      <p>Name: {props.name}</p>
       <img src={props.image} alt="" />
-      {/* <p>Genres: {props.genres}</p> */}
-      <p>Rating: {props.rating}</p>
+      <p>Name: {props.name}</p>
+      <p>Genres: {props.genres.join(' | ')}</p>
+      {/* <p>Rating: {props.rating}</p> */}
     </div>
   )
 };
