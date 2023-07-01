@@ -21,7 +21,8 @@ const Cards = () => {
               released={game.released}
               rating={game.rating}
               genres={game.genres}
-          />)
+            />
+          )
         })
       }
     </div>

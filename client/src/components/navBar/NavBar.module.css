@@ -3,12 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5f717f;
   margin: 0;
   padding: 12px;
+  background-color: #5f717f;
 }
 
 .NavBarContainer span{
   color: #cedbe4;
   font-size: 18px;
+  margin: 12px;
 }

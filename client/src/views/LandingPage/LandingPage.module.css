@@ -1,17 +1,17 @@
+/* flex-direction: column; */
 
 .landingPageContainer{
+  height: 100vh;
   position: relative;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: flex-start;
-  height: 100vh;
   background-image: url(../LandingPage/GowLandingPage0.jpg);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   animation: fadeIn 2s ease;
-}
+}  
 
 @keyframes fadeIn {
   0% {

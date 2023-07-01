@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 430px){
+  .searchBarContainer{
+    flex-direction: column;
+  }
+}
 
 /* 
 .searchBarContainer input:focus{

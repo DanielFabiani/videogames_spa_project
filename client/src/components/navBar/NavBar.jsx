@@ -4,6 +4,7 @@ const NavBar = ()=> {
   return (
     <div className={styles.NavBarContainer}>
       <span>Navbar</span>
+      <span>Navbar</span>
     </div>
   )
 };
