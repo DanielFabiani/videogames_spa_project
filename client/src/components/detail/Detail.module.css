@@ -1,16 +1,29 @@
 .detailContainer{
   color: #cedbe4;
-  width: fit-content;
-  height: 250px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap:30px;
+  padding: 38px;
+}
+
+.detailImage{
+  margin: 0;
+  padding: 0;
 }
 
 .detailImage img{
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 200px;
+  width: 35vw;
   border-radius: 12px;
   object-fit: cover;
 }
+
+.detailInfo{
+  width: 70%;
+  text-align: left;
+  line-height: 1.5em;
+}
+
