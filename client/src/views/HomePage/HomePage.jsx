@@ -19,7 +19,6 @@ const HomePage = () => {
     <div className={styles.homePageContainer}>
       <SearchBar />
       <Cards />
-      <h1>home</h1>
     </div>
   )
 };

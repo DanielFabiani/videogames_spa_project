@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import LandingPage from './views/LandingPage/LandingPage.jsx';
 import HomePage from "./views/HomePage/HomePage";
 import NavBar from "./components/navBar/NavBar";
+import Detail from "./components/detail/Detail";
 
 
 
@@ -17,8 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={ <LandingPage /> } />
         <Route path="/home" element={ <HomePage /> } />
+        <Route path="/detail/:id" element={ <Detail /> } />
       </Routes>
-
       
     </div>
   );

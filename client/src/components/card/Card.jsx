@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Card.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Card = (props) => {
-  //const id = props.id;
+  const id = props.id;
 
   return (
     <div className={styles.cardContainer}>
@@ -12,7 +13,9 @@ const Card = (props) => {
       </div>
 
       <div className={styles.cardTitle}>
-        <h3>{props.name}</h3>
+        <NavLink to={`/detail/${id}`}>
+          <h3>{props.name}</h3>
+        </NavLink>
       </div>
 
       <div className={styles.cardInfo}>
