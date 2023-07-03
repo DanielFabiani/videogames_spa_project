@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const DETAIL_VIDEOGAMES = 'DETAIL_VIDEOGAMES';
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES';
+export const FILTER_GENRE = 'FILTER_GENRE';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -33,10 +34,29 @@ export const detailVideogames = (id) => {
 export const searchVideogames = (name) => {
   return async (dispatch) => {
     const apiData = await axios.get(`http://localhost:3001/videogames/name?name=${name}`);
-    const SearchGame = apiData.data; dispatch({
+    const SearchGame = apiData.data; 
+    dispatch({
       type: SEARCH_VIDEOGAMES,
       payload: SearchGame,
     })
   }
 };
+
+// filtro por genero
+export const filterGenre = (genres) => {
+  return{
+    type: FILTER_GENRE,
+    payload: genres,
+  }
+}
+/* export const filterGenre = () => {
+  return async (dispatch) => {
+    const apiData = await axios.get(`http://localhost:3001/videogames`);
+    const FilterGenre = apiData.data;
+    dispatch({
+      type: FILTER_GENRE,
+      payload: FilterGenre,
+    })
+  }
+} */
 

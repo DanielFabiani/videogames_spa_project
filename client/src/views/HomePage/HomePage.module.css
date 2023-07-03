@@ -2,3 +2,10 @@
 .homePageContainer{
   color: #cedbe4;
 }
+
+.searchFilterContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

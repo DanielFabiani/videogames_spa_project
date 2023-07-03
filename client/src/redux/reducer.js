@@ -1,11 +1,13 @@
-import { DETAIL_VIDEOGAMES, GET_VIDEOGAMES, SEARCH_VIDEOGAMES } from "./actions/actions";
+import { DETAIL_VIDEOGAMES, FILTER_GENRE, GET_VIDEOGAMES, SEARCH_VIDEOGAMES } from "./actions/actions";
 
 const initialState = {
   Videogames: [],
+  VideogamesCopy: [],
   DetailGame: [],
   SearchGame: [], //estado name
-  AllVideogames: [],
+  FilteredGenres: [],
   Genres: [],
+  AllVideogames: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +16,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Videogames: action.payload,
+        VideogamesCopy: action.payload,
       }
     case DETAIL_VIDEOGAMES:
       return {
@@ -25,8 +28,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         SearchGame: action.payload,
       }
+      case FILTER_GENRE: {
+        const filterGenres = state.VideogamesCopy.filter((game) =>
+          game.genres.includes(action.payload)
+        );
+        return {
+          ...state,
+          FilteredGenres: filterGenres,
+        };
+      }
     default:
-    //copia del estado
       return { ...state };
   }
 };

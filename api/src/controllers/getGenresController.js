@@ -16,12 +16,17 @@ const allGenres = async () => {
   if (genreCount === 0) {
     const genreData = nameGenres.map(name => ({ name }))
     await Genre.bulkCreate(genreData);
-  //findOrCreate
-    //console.log(genreData);
-    return genreData;
   }
-
-  console.log(data.length);
+  
+  const genresFromDatabase = await Genre.findAll(
+    {
+      attributes: ['name'],
+    }
+  );
+  const genreNamesFromDatabase = genresFromDatabase.map(genres => (genres));
+  //console.log(genreNamesFromDatabase);
+  console.log(genreNamesFromDatabase.length);
+  return genreNamesFromDatabase;
 }
 
 module.exports = allGenres;

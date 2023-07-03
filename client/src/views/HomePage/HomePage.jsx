@@ -17,8 +17,10 @@ const HomePage = () => {
 
   return (
     <div className={styles.homePageContainer}>
-      <SearchBar />
-      <GenderFilter />
+      <div className={styles.searchFilterContainer}>
+        <SearchBar />
+        <GenderFilter />
+      </div>
       <Cards />
     </div>
   )
