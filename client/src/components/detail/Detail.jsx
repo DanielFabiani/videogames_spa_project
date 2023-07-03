@@ -13,8 +13,9 @@ const Detail = () => {
   }, [dispatch, id]);
 
   const DetailGame = useSelector((state) => state.DetailGame)
-  const platforms = DetailGame.platforms.join(', ');
-  const genres = DetailGame.genres.join(', ');
+  const platforms = DetailGame.platforms;
+  const genres = DetailGame.genres;
+
   return (
     <div className={styles.detailContainer}>
 

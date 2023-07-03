@@ -21,13 +21,13 @@ const idDataGames = async (id) => {
       id: data.id,
       name: data.name,
       description: data.description.replace(regexHtml, ""),
-      platforms: data.platforms.map((p) => p.platform.name),
+      platforms: (data.platforms.map((p) => p.platform.name)).join(" | "),
       image: data.background_image,
       released: data.released,
       //* se adiciona para el detalle del juego el website
       website: data.website,
       rating: data.rating,
-      genres: data.genres.map((g) => g.name),
+      genres: (data.genres.map((g) => g.name)).join(' |'),
     };
     //console.log(idDataGames);
     return idDataGames;

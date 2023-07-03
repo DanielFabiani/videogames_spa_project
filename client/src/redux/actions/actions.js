@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const DETAIL_VIDEOGAMES = 'DETAIL_VIDEOGAMES';
+export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -14,7 +15,7 @@ export const getVideogames = () => {
       payload: Videogames,
     });
   }
-}
+};
 
 // traigo el detalle de la carta seleccionada por su id
 export const detailVideogames = (id) => {
@@ -26,6 +27,16 @@ export const detailVideogames = (id) => {
       payload: DetailGame,
     });
   }
+};
 
-}
+// traigo las cartas que coincidan con el nombre ingresado
+export const searchVideogames = (name) => {
+  return async (dispatch) => {
+    const apiData = await axios.get(`http://localhost:3001/videogames/name?name=${name}`);
+    const SearchGame = apiData.data; dispatch({
+      type: SEARCH_VIDEOGAMES,
+      payload: SearchGame,
+    })
+  }
+};
 

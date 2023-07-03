@@ -5,11 +5,11 @@ import SearchBar from '../../components/searchBar/SearchBar';
 import styles from './HomePage.module.css';
 import { useEffect } from 'react';
 import { getVideogames } from '../../redux/actions/actions';
-//import Card from '../../components/card/Card';
+import GenderFilter from '../../components/genderFilter/GenderFilter';
+
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  /* const games = useSelector(state => state.Videogames) */
 
   useEffect(() => {
     dispatch(getVideogames())
@@ -18,6 +18,7 @@ const HomePage = () => {
   return (
     <div className={styles.homePageContainer}>
       <SearchBar />
+      <GenderFilter />
       <Cards />
     </div>
   )
