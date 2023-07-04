@@ -74,6 +74,7 @@ export const orderVideogamesAscDesc = (payload) => {
     payload
   }
 }
+
 // ordenamiento de juegos por rating
 export const orderVideogamesByRating = (payload) => {
   return {
