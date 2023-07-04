@@ -1,16 +1,13 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./GenderFilter.module.css";
-//import Card from "../card/Card";
 import { AllGenres, filterGenre, getVideogames } from "../../redux/actions/actions";
 import { useEffect } from "react";
-
 
 
 const GenderFilter = () => {
 
   const genres = useSelector(state => state.genres);
-  console.log(genres);
 
   const dispatch = useDispatch();
 
@@ -28,7 +25,7 @@ const GenderFilter = () => {
 
   return (
     <div className={styles.genderFilterContainer}>
-      <span>filter by genre</span>
+      <span>Filter by Genre</span>
 
       <select onChange={(e)=> handleFilter(e)} defaultValue='default'>
 
@@ -42,24 +39,6 @@ const GenderFilter = () => {
         }
 
       </select>
-      {/* <div>
-        {
-          Videogames.map((genre) => {
-            return (
-              <Card
-                key={genre.id}
-                id={genre.id}
-                image={genre.image}
-                name={genre.name}
-                platforms={genre.platforms}
-                released={genre.released}
-                rating={genre.rating}
-                genres
-              />
-            )
-          })
-        }
-      </div> */}
     </div>
   );
 };

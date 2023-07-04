@@ -35,10 +35,10 @@ export const detailVideogames = (id) => {
 export const searchVideogames = (name) => {
   return async (dispatch) => {
     const apiData = await axios.get(`http://localhost:3001/videogames/name?name=${name}`);
-    const SearchGame = apiData.data; 
+    const Videogames = apiData.data; 
     dispatch({
       type: SEARCH_VIDEOGAMES,
-      payload: SearchGame,
+      payload: Videogames,
     })
   }
 };

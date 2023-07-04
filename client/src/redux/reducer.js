@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
     case SEARCH_VIDEOGAMES:
       return {
         ...state,
-        SearchGame: action.payload,
+        Videogames: action.payload,
       }
     case ALL_GENRE:
       return {

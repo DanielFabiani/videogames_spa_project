@@ -9,7 +9,7 @@ const allGenres = async () => {
     genrApi = genrApi.data.results;
     genrApi = genrApi?.map((genre) => {
         return {
-            name: genre.name,
+          name: genre.name,
         }
     });
     genrApi.forEach(async (genre) => {

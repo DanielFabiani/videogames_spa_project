@@ -1,0 +1,14 @@
+.genderFilterContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.genderFilterContainer select {
+  border: 2px solid #d6c689;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}

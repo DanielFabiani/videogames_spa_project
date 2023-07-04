@@ -85,7 +85,6 @@ const allDataGames = async ()=> {
   
   //concateno los dos arreglos para traer todos los juegos
   const allGames = apiDataGames.concat(dbDataGames);
-  console.log(allGames.length);
 
   return allGames;
 };
