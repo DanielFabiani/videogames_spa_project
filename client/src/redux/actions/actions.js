@@ -5,6 +5,8 @@ export const DETAIL_VIDEOGAMES = 'DETAIL_VIDEOGAMES';
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES';
 export const FILTER_GENRE = 'FILTER_GENRE';
 export const ALL_GENRE = 'ALL_GENRE';
+export const SORT_VIDEOGAMES_ASC_DESC = 'SORT_VIDEOGAMES_ASC_DESC';
+export const SORT_VIDEOGAMES_RATING = 'SORT_VIDEOGAMES_RATING';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -62,6 +64,21 @@ export const AllGenres = () => {
     } catch (error) {
       console.log(error.message);
     }
+  }
+}
+
+// ordenamiento de juegos alfabético
+export const orderVideogamesAscDesc = (payload) => {
+  return {
+    type: SORT_VIDEOGAMES_ASC_DESC,
+    payload
+  }
+}
+// ordenamiento de juegos por rating
+export const orderVideogamesByRating = (payload) => {
+  return {
+    type: SORT_VIDEOGAMES_RATING,
+    payload
   }
 }
 

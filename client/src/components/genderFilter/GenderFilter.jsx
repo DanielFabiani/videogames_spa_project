@@ -1,11 +1,12 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./GenderFilter.module.css";
-import { AllGenres, filterGenre, getVideogames } from "../../redux/actions/actions";
-import { useEffect } from "react";
+import { AllGenres, filterGenre} from "../../redux/actions/actions";
+import { useEffect, useState } from "react";
 
 
 const GenderFilter = () => {
+  const [aux, setAux] = useState(false);
 
   const genres = useSelector(state => state.genres);
 
@@ -15,21 +16,16 @@ const GenderFilter = () => {
     dispatch(AllGenres())
   }, [dispatch])
 
-  useEffect(()=>{
-    dispatch(getVideogames())
-  }, [dispatch])
-
   const handleFilter = (event) => {
-    dispatch(filterGenre(event.target.value));
-  };
+    dispatch(filterGenre(event.target.value))
+    setAux(!aux);
+  }
 
   return (
     <div className={styles.genderFilterContainer}>
-      <span>Filter by Genre</span>
 
       <select onChange={(e)=> handleFilter(e)} defaultValue='default'>
-
-        <option value="default" disabled >All</option>
+        <option value="default" disabled >Filter by Genre</option>
         {
           genres?.map((genre) => (
             <option key={genre.name} value={genre.name}>
@@ -37,7 +33,6 @@ const GenderFilter = () => {
             </option>
         ))
         }
-
       </select>
     </div>
   );
