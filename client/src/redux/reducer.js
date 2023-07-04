@@ -1,4 +1,4 @@
-import { DETAIL_VIDEOGAMES, FILTER_GENRE, GET_VIDEOGAMES, SEARCH_VIDEOGAMES } from "./actions/actions";
+import { ALL_GENRE, DETAIL_VIDEOGAMES, FILTER_GENRE, GET_VIDEOGAMES, SEARCH_VIDEOGAMES } from "./actions/actions";
 
 const initialState = {
   Videogames: [],
@@ -6,7 +6,7 @@ const initialState = {
   DetailGame: [],
   SearchGame: [], //estado name
   FilteredGenres: [],
-  Genres: [],
+  genres: [],
   AllVideogames: [],
 }
 
@@ -28,15 +28,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         SearchGame: action.payload,
       }
-      case FILTER_GENRE: {
-        const filterGenres = state.VideogamesCopy.filter((game) =>
-          game.genres.includes(action.payload)
-        );
-        return {
-          ...state,
-          FilteredGenres: filterGenres,
-        };
+    case ALL_GENRE:
+      return {
+        ...state,
+        genres: action.payload,
       }
+    case FILTER_GENRE: 
+      const VideogamesCopy = state.VideogamesCopy;
+      // confirma que estén los juegos
+      const gamesGenres = action.payload === "all"
+        ? VideogamesCopy 
+        : VideogamesCopy.filter(game => game.genres.includes(action.payload))
+        console.log(action.payload)
+      return {
+        ...state,
+        Videogames: gamesGenres,
+      };    
     default:
       return { ...state };
   }

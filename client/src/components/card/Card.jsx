@@ -19,7 +19,7 @@ const Card = (props) => {
       </div>
 
       <div className={styles.cardInfo}>
-        <p>Genres: {props.genres.join(' | ')}</p>
+        <p>Genres: {props.genres}</p>
         <p>Rating: {props.rating}</p>
       </div>
 

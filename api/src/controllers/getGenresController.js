@@ -5,7 +5,27 @@ const URL = `https://api.rawg.io/api/genres?key=${apiKey}`;
 const { Genre } = require("../db");
 
 const allGenres = async () => {
+  let genrApi = await axios.get(URL);
+    genrApi = genrApi.data.results;
+    genrApi = genrApi?.map((genre) => {
+        return {
+            name: genre.name,
+        }
+    });
+    genrApi.forEach(async (genre) => {
+        await Genre.findOrCreate({
+            where: {
+                name: genre.name,
+            },
+        });
+    });
+    let genres = await Genre.findAll();
+    return genres;
+}
 
+
+module.exports = allGenres;
+/* 
   const response = await axios.get(URL);
 // array con todos los géneros
   const data = response.data.results;
@@ -26,7 +46,4 @@ const allGenres = async () => {
   const genreNamesFromDatabase = genresFromDatabase.map(genres => (genres));
   //console.log(genreNamesFromDatabase);
   console.log(genreNamesFromDatabase.length);
-  return genreNamesFromDatabase;
-}
-
-module.exports = allGenres;
+  return genreNamesFromDatabase; */

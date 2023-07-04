@@ -4,6 +4,7 @@ export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const DETAIL_VIDEOGAMES = 'DETAIL_VIDEOGAMES';
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES';
 export const FILTER_GENRE = 'FILTER_GENRE';
+export const ALL_GENRE = 'ALL_GENRE';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -43,20 +44,24 @@ export const searchVideogames = (name) => {
 };
 
 // filtro por genero
-export const filterGenre = (genres) => {
+export const filterGenre = (payload) => {
   return{
     type: FILTER_GENRE,
-    payload: genres,
+    payload
   }
 }
-/* export const filterGenre = () => {
+export const AllGenres = () => {
   return async (dispatch) => {
-    const apiData = await axios.get(`http://localhost:3001/videogames`);
-    const FilterGenre = apiData.data;
-    dispatch({
-      type: FILTER_GENRE,
-      payload: FilterGenre,
-    })
+    try {
+      const apiData = await axios.get('http://localhost:3001/genres');
+      const genres = apiData.data;
+      dispatch({
+        type: ALL_GENRE,
+        payload: genres,
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
   }
-} */
+}
 

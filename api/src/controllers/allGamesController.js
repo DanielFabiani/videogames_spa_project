@@ -42,7 +42,7 @@ const allDataGames = async ()=> {
       image: background_image,
       released: released,
       rating: rating,
-      genres: genres.map((genre) => genre.name),
+      genres: (genres.map((genre) => genre.name).join(' | ')),
     })
   );
   //console.log(apiDataGames);
@@ -77,7 +77,7 @@ const allDataGames = async ()=> {
     image: background_image,
     released: released,
     rating: rating,
-    genres: Genres.map(genre => genre.name)
+    genres: (Genres.map(genre => genre.name).join(' | '))
   }))
   
   //console.log(dbDataGames);
