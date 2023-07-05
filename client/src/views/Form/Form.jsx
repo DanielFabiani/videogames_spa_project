@@ -14,10 +14,13 @@ const validate = (form) =>{
     errors.description = 'Insert a validate description'
   }
   if (!form.platforms) {
-    errors.image = 'Insert a validate image'
+    errors.platforms = 'Insert a validates platforms'
   }
   if (!form.image) {
-    errors.image = 'Insert a validate image'
+    errors.image = 
+    !form.image.includes('https://' || 'http://')
+    ? 'Insert a validate URL image' 
+    : ''
   }
   if (!form.released) {
     errors.released = 'Insert a validate released'

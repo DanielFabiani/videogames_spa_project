@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import SearchBar from '../../components/searchBar/SearchBar';
 import styles from './HomePage.module.css';
 import { useEffect, useState } from 'react';
-import { getVideogames, orderVideogamesAscDesc, orderVideogamesByRating } from '../../redux/actions/actions';
-import GenderFilter from '../../components/genderFilter/GenderFilter';
+import { AllGenres, filterGenre, getVideogames, orderVideogamesAscDesc, orderVideogamesByRating } from '../../redux/actions/actions';
+//import GenderFilter from '../../components/genderFilter/GenderFilter';
 import Pagination from '../../components/pagination/Pagination';
 import Card from '../../components/card/Card';
 import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
@@ -56,17 +56,44 @@ const HomePage = () => {
     dispatch(getVideogames())
   } */
 
+  //filtro por genero
+  const genres = useSelector(state => state.genres)
+
+  useEffect(()=>{
+    dispatch(AllGenres())
+  }, [dispatch])
+
+  const handleFilter = (event) => {
+    dispatch(filterGenre(event.target.value))
+    setAux(!aux);
+  }
+
   return (
     <div className={styles.homePageContainer}>
 
       <div className={styles.searchFilterContainer}>
         <SearchBar />
+
         <PrimaryButton>
           <NavLink to="/form">Create a game</NavLink>
         </PrimaryButton>
+
         <div className={styles.orderContainer}>
+
           {/* filtro por genero */}
-          <GenderFilter />
+          <div className={styles.genderFilterContainer}>
+            <select onChange={(e)=> handleFilter(e)} defaultValue='default'>
+              <option value="default" disabled >Filter by Genre</option>
+              {
+                genres?.map((genre) => (
+                  <option key={genre.name} value={genre.name}>
+                    {genre.name}
+                  </option>
+              ))
+              }
+            </select>
+          </div>
+          {/* <GenderFilter /> */}
           {/* orden alfabético */}
           <div className={styles.orderAscDesc}>
             <select onChange={(e)=> handleOrderAscDesc(e)}>
@@ -78,7 +105,7 @@ const HomePage = () => {
 
           {/* orden por rating */}
           <div className={styles.orderByRating}>
-          <select onChange={(e)=> handleOrderRating(e)}>
+            <select onChange={(e)=> handleOrderRating(e)}>
               <option value="default" >Select by rating</option>
               <option value="best" >Best</option>
               <option value="worst">Worst</option>
