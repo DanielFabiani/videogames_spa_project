@@ -1,10 +1,16 @@
+import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css';
+import SecondaryButton from '../buttons/secondaryButton/SecondaryButton';
+
+
 
 const NavBar = ()=> {
   return (
     <div className={styles.NavBarContainer}>
-      <span>Navbar</span>
-      <span>Navbar</span>
+      <h2>Welcome</h2>
+      <SecondaryButton>
+        <NavLink to="/home">Home</NavLink>
+      </SecondaryButton>
     </div>
   )
 };

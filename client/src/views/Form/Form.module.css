@@ -1,0 +1,12 @@
+.formContainer form{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 8px 28px;
+  color: #cedbe4;
+  gap: 26px
+}
+

@@ -1,0 +1,20 @@
+
+.paginationContainer{
+  margin: 14px;
+}
+
+.paginationContainer button{
+  margin-right: 8px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.paginationContainer button:hover{
+  background-color: #0e1213;
+  color: #d6c689;
+}
+
+.paginationContainer button:active{
+  transform: scale(0.9)
+}

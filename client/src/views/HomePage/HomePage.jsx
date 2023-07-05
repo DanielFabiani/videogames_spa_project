@@ -1,19 +1,21 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import Cards from '../../components/cards/Cards';
 import SearchBar from '../../components/searchBar/SearchBar';
 import styles from './HomePage.module.css';
 import { useEffect, useState } from 'react';
 import { getVideogames, orderVideogamesAscDesc, orderVideogamesByRating } from '../../redux/actions/actions';
 import GenderFilter from '../../components/genderFilter/GenderFilter';
 import Pagination from '../../components/pagination/Pagination';
+import Card from '../../components/card/Card';
+import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
+import { NavLink } from 'react-router-dom';
 
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
 
-  const allVideogames = useSelector(state => state.Videogames);
+  const allVideogames = useSelector((state) => state.Videogames);
   //estados locales para el paginado
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(15);
@@ -59,27 +61,48 @@ const HomePage = () => {
 
       <div className={styles.searchFilterContainer}>
         <SearchBar />
-        <GenderFilter />
+        <PrimaryButton>
+          <NavLink to="/form">Create a game</NavLink>
+        </PrimaryButton>
+        <div className={styles.orderContainer}>
+          {/* filtro por genero */}
+          <GenderFilter />
+          {/* orden alfabético */}
+          <div className={styles.orderAscDesc}>
+            <select onChange={(e)=> handleOrderAscDesc(e)}>
+              <option value="default" >Select by order</option>
+              <option value="asc" >Ascendent</option>
+              <option value="desc">Descendent</option>
+            </select>
+          </div>
+
+          {/* orden por rating */}
+          <div className={styles.orderByRating}>
+          <select onChange={(e)=> handleOrderRating(e)}>
+              <option value="default" >Select by rating</option>
+              <option value="best" >Best</option>
+              <option value="worst">Worst</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.orderContainer}>
-        {/* orden alfabético */}
-        <div className={styles.orderAscDesc}>
-          <select onChange={(e)=> handleOrderAscDesc(e)}>
-            <option value="default" >Select by order</option>
-            <option value="asc" >Ascendent</option>
-            <option value="desc">Descendent</option>
-          </select>
-        </div>
-
-        {/* orden por rating */}
-        <div className={styles.orderByRating}>
-        <select onChange={(e)=> handleOrderRating(e)}>
-            <option value="default" >Select by rating</option>
-            <option value="best" >Best</option>
-            <option value="worst">Worst</option>
-          </select>
-        </div>
+      
+      <div className={styles.paginationContainerCards}>
+        {
+          currentGames?.map(game => {
+            return (
+              <Card
+                key={game.id}
+                id={game.id}
+                name={game.name}
+                image={game.image}
+                genres={game.genres}
+                rating={game.rating}
+              />
+            )
+          })
+        }
       </div>
       {/* paginado */}
       <div className={styles.paginationContainer}>
@@ -90,7 +113,6 @@ const HomePage = () => {
           paginate={paginate} /* función para paginar */
         />
       </div>
-      <Cards />
     </div>
   )
 };

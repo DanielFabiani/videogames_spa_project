@@ -2,14 +2,19 @@
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 12px;
+  justify-content: space-between;
   background-color: #5f717f;
+  padding: 14px 30px;
 }
 
-.NavBarContainer span{
+.NavBarContainer h2{
+  margin-left: 28px;
   color: #cedbe4;
-  font-size: 18px;
+  font-size: 28px;
   margin: 12px;
+}
+
+.NavBarContainer a{
+  text-decoration: none;
+  color: #cedbe4
 }
