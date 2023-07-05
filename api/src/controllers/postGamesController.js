@@ -6,7 +6,6 @@ const postDataVideoGames = async (
   platforms,
   image,
   released,
-  website,
   rating,
   genre,
 ) => {
@@ -17,7 +16,6 @@ const postDataVideoGames = async (
     platforms,
     image,
     released,
-    website,
     rating,
   });
 

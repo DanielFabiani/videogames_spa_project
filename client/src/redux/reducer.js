@@ -106,8 +106,8 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           VideogamesCopy: videogamesSortRating
+
         };
-        
     default:
       return { ...state };
   }

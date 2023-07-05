@@ -7,11 +7,10 @@ const postVideoGames = async (req, res) => {
     platforms,
     image,
     released,
-    website,
     rating,
     genres,
   } = req.body;
-  if (!name || !description || !platforms) {
+  if (!name || !description) {
     return res.status(404).send("Falta enviar datos obligatorios");
   }
   try {
@@ -21,7 +20,6 @@ const postVideoGames = async (req, res) => {
       platforms,
       image,
       released,
-      website,
       rating,
       genres,
     );

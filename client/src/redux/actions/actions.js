@@ -81,5 +81,4 @@ export const orderVideogamesByRating = (payload) => {
     type: SORT_VIDEOGAMES_RATING,
     payload
   }
-}
-
+};
