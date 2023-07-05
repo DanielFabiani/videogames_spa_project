@@ -57,15 +57,22 @@ const Form = () => {
     genres: true,
   });
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3001/videogames',form)
       .then(res=>alert('Game created successfully'))
       .catch(err=>alert('Please fill in all the fields'));
+    setForm({
+      name: '',
+      description: '',
+      platforms:'',
+      image: '',
+      released: '',
+      rating: '',
+      genres: [],
+    })
   }
 
-  
   const handlerInputChange= (e) => {
     setForm({
       ...form,
@@ -76,7 +83,7 @@ const Form = () => {
       [e.target.name]: e.target.value,
     }))
   }
-  
+
   const dispatch = useDispatch()
   const genres = useSelector(state => state.genres)
 

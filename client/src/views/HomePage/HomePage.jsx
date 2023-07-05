@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import SearchBar from '../../components/searchBar/SearchBar';
 import styles from './HomePage.module.css';
 import { useEffect, useState } from 'react';
-import { AllGenres, filterGenre, getVideogames, orderVideogamesAscDesc, orderVideogamesByRating } from '../../redux/actions/actions';
-//import GenderFilter from '../../components/genderFilter/GenderFilter';
+import { getVideogames, orderVideogamesAscDesc, orderVideogamesByRating } from '../../redux/actions/actions';
+import GenderFilter from '../../components/genderFilter/GenderFilter';
 import Pagination from '../../components/pagination/Pagination';
 import Card from '../../components/card/Card';
 import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
@@ -56,18 +56,6 @@ const HomePage = () => {
     dispatch(getVideogames())
   } */
 
-  //filtro por genero
-  const genres = useSelector(state => state.genres)
-
-  useEffect(()=>{
-    dispatch(AllGenres())
-  }, [dispatch])
-
-  const handleFilter = (event) => {
-    dispatch(filterGenre(event.target.value))
-    setAux(!aux);
-  }
-
   return (
     <div className={styles.homePageContainer}>
 
@@ -81,19 +69,7 @@ const HomePage = () => {
         <div className={styles.orderContainer}>
 
           {/* filtro por genero */}
-          <div className={styles.genderFilterContainer}>
-            <select onChange={(e)=> handleFilter(e)} defaultValue='default'>
-              <option value="default" disabled >Filter by Genre</option>
-              {
-                genres?.map((genre) => (
-                  <option key={genre.name} value={genre.name}>
-                    {genre.name}
-                  </option>
-              ))
-              }
-            </select>
-          </div>
-          {/* <GenderFilter /> */}
+          <GenderFilter />
           {/* orden alfabético */}
           <div className={styles.orderAscDesc}>
             <select onChange={(e)=> handleOrderAscDesc(e)}>

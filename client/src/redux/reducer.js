@@ -59,7 +59,7 @@ const reducer = (state = initialState, action) => {
     
     case SORT_VIDEOGAMES_ASC_DESC:
       let videogamesSort = action.payload === "asc"
-        ? state.VideogamesCopy.sort((a, b)=> {
+        ? state.Videogames.sort((a, b)=> {
           if (a.name > b.name) {
             return 1;
           }
@@ -68,7 +68,7 @@ const reducer = (state = initialState, action) => {
           }
           return 0;
         })
-        : state.VideogamesCopy.sort((a, b)=> {
+        : state.Videogames.sort((a, b)=> {
           if (a.name > b.name) {
             return -1;
           }
@@ -79,12 +79,12 @@ const reducer = (state = initialState, action) => {
         })
       return {
         ...state,
-        VideogamesCopy: videogamesSort
+        Videogames: videogamesSort
       };
 
       case SORT_VIDEOGAMES_RATING:
         let videogamesSortRating = action.payload === "best"
-          ? state.VideogamesCopy.sort((a, b)=> {
+          ? state.Videogames.sort((a, b)=> {
             if (a.rating > b.rating) {
               return -1;
             }
@@ -94,7 +94,7 @@ const reducer = (state = initialState, action) => {
             return 0;
           })
           :
-          state.VideogamesCopy.sort((a, b)=> {
+          state.Videogames.sort((a, b)=> {
             if (a.rating > b.rating) {
               return 1;
             }
@@ -105,7 +105,7 @@ const reducer = (state = initialState, action) => {
           })
         return {
           ...state,
-          VideogamesCopy: videogamesSortRating
+          Videogames: videogamesSortRating
 
         };
     default:
