@@ -4,32 +4,33 @@ import styles from './Form.module.css'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { AllGenres } from '../../redux/actions/actions';
+import SecondaryButton from '../../components/buttons/secondaryButton/SecondaryButton';
 
 const validate = (form) =>{
   let errors = {}
   if (!form.name) {
-    errors.name = 'Insert a validate name'
+    errors.name = 'Insert a validate name👆🏻'
   }
   if (!form.description) {
-    errors.description = 'Insert a validate description'
+    errors.description = 'Insert a validate description👆🏻'
   }
   if (!form.platforms) {
-    errors.platforms = 'Insert a validates platforms'
+    errors.platforms = 'Insert a validates platforms👆🏻'
   }
   if (!form.image) {
     errors.image = 
     !form.image.includes('https://' || 'http://')
-    ? 'Insert a validate URL image' 
+    ? 'Insert a validate URL image👆🏻' 
     : ''
   }
   if (!form.released) {
-    errors.released = 'Insert a validate released'
+    errors.released = 'Insert a validate released👆🏻'
   }
   if (!form.rating) {
-    errors.rating = 'Insert a validate rating'
+    errors.rating = 'Insert a validate rating👆🏻'
   }
   if (!form.genre) {
-    errors.genres = 'Insert a validate genres'
+    errors.genres = 'Insert a validate genres👆🏻'
   }
   return errors;
 }
@@ -106,6 +107,7 @@ const Form = () => {
 
   return (
     <div className={styles.formContainer}>
+
       <form onSubmit={(e)=> handleSubmit(e)}>
         <section>
           <label htmlFor="name">Name: </label>
@@ -115,10 +117,10 @@ const Form = () => {
             value={form.name}
             onChange={handlerInputChange}
           />
-            {
-              errors.name && (<span>{errors.name}</span>)
-            }
         </section>
+          {
+            errors.name && (<p>{errors.name}</p>)
+          }
 
         <section>
           <label htmlFor="description">Description: </label>
@@ -128,10 +130,10 @@ const Form = () => {
             onChange={handlerInputChange}
             value={form.description}
           />
-            {
-              errors.description && (<span>{errors.description}</span>)
-            }
         </section>
+          {
+            errors.description && (<p>{errors.description}</p>)
+          }
 
         <section>
           <label htmlFor="platforms">Platforms: </label>
@@ -141,10 +143,10 @@ const Form = () => {
             onChange={handlerInputChange}
             value={form.platforms}
           />
-            {
-              errors.platforms && (<span>{errors.platforms}</span>)
-            }
         </section>
+          {
+            errors.platforms && (<p>{errors.platforms}</p>)
+          }
 
         <section>
           <label htmlFor="image">Image link: </label>
@@ -154,10 +156,10 @@ const Form = () => {
             onChange={handlerInputChange}
             value={form.image}
           />
-            {
-              errors.image && (<span>{errors.image}</span>)
-            }
         </section>
+          {
+            errors.image && (<p>{errors.image}</p>)
+          }
         
         <section>
           <label htmlFor="released">Released: </label>
@@ -167,10 +169,10 @@ const Form = () => {
             onChange={handlerInputChange}
             value={form.released}
           />
-            {
-              errors.released && (<span>{errors.released}</span>)
-            }
         </section>
+          {
+            errors.released && (<p>{errors.released}</p>)
+          }
 
         <section>
           <label htmlFor="rating">Rating: </label>
@@ -180,10 +182,10 @@ const Form = () => {
             onChange={handlerInputChange}
             value={form.rating}
           />
-            {
-              errors.rating && (<span>{errors.rating}</span>)
-            }
         </section>
+          {
+            errors.rating && (<p>{errors.rating}</p>)
+          }
 
         <section>
           <label htmlFor="genres">Genres: </label>
@@ -196,10 +198,13 @@ const Form = () => {
                 </option>
               ))
             }
-          errors.genres && (<span>{errors.genres}</span>)
           </select>
         </section>
-        <button type="submit">Create Videogame</button>
+          {errors.genres && (<p>{errors.genres}</p>)}
+        <SecondaryButton>
+          Create Videogame
+        </SecondaryButton>
+        {/* <button type="submit">Create Videogame</button> */}
       </form>
     </div>
   )

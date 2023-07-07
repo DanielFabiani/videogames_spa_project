@@ -51,7 +51,6 @@ const reducer = (state = initialState, action) => {
           : VideogamesCopy.filter((game) =>
               game.genres.includes(action.payload)
             );
-      //console.log(action.payload);
       return {
         ...state,
         Videogames: gamesGenres,

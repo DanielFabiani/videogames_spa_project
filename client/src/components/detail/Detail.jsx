@@ -14,7 +14,7 @@ const Detail = () => {
 
   const DetailGame = useSelector((state) => state.DetailGame)
   const platforms = DetailGame.platforms;
-  const genres = DetailGame.genres;
+  const genres = DetailGame.Genres.map(g=> g.name);
 
   return (
     <div className={styles.detailContainer}>

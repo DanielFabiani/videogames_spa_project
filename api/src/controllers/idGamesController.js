@@ -1,6 +1,6 @@
 const axios = require("axios");
 const apiKey = process.env.API_KEY;
-const { Videogames, Genres } = require("../db");
+const { Videogame, Genre } = require("../db");
 //query de ejemplo url api por id
 // 'https://api.rawg.io/api/games/3328?key=fad0d708958f4a0fb4a2da0317865dbd'
 
@@ -8,8 +8,7 @@ const { Videogames, Genres } = require("../db");
 
 //GET | /videogames/:idVideogame
 const idDataGames = async (id) => {
-  const regexNum = /^\d+$/;
-  if (regexNum.test(id)) {
+  if (id.length < 5 ) {
     const URL = `https://api.rawg.io/api/games/${id}?key=${apiKey}&page_size=40`;
 
     const response = await axios.get(URL);
@@ -25,21 +24,22 @@ const idDataGames = async (id) => {
       image: data.background_image,
       released: data.released,
       //* se adiciona para el detalle del juego el website
-      website: data.website,
+      //website: data.website,
       rating: data.rating,
-      genres: (data.genres.map((g) => g.name)).join(' |'),
+      genres: (data.genres.map((g) => g.name)).join(' | '),
     };
     //console.log(idDataGames);
     return idDataGames;
   } else {
-    const searchById = await Videogames.findByPk(id, {
+    const searchById = await Videogame.findByPk(id, {
       include: {
-        model: Genres,
+        model: Genre,
         attributes: ["name"],
         through: { attributes: [] },
       },
     });
-    console.log(searchById);
+    //console.log(searchById);
+    
     return searchById;
   }
 };
