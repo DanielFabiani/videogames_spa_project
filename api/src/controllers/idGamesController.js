@@ -31,6 +31,7 @@ const idDataGames = async (id) => {
     //console.log(idDataGames);
     return idDataGames;
   } else {
+
     const searchById = await Videogame.findByPk(id, {
       include: {
         model: Genre,
@@ -38,9 +39,19 @@ const idDataGames = async (id) => {
         through: { attributes: [] },
       },
     });
-    //console.log(searchById);
-    
-    return searchById;
+    console.log(searchById);
+
+    const gameDb = {
+      id: searchById.dataValues.id,
+      name: searchById.dataValues.name,
+      description: searchById.dataValues.description,
+      platforms: searchById.dataValues.platforms,
+      image: searchById.dataValues.image,
+      released: searchById.dataValues.released,
+      rating: searchById.dataValues.rating,
+      genres: searchById.dataValues.Genres?.map((gen) => gen.name).join(' | '),
+    }
+    return gameDb;
   }
 };
 

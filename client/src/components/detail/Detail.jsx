@@ -13,15 +13,17 @@ const Detail = () => {
   }, [dispatch, id]);
 
   const DetailGame = useSelector((state) => state.DetailGame)
+
   const platforms = DetailGame.platforms;
-  const genres = DetailGame.Genres.map(g=> g.name);
+  const genres = DetailGame.genres;
+  
 
   return (
     <div className={styles.detailContainer}>
 
       <div className={styles.detailImage}>
         <h1>{DetailGame.name}</h1>
-        <img src={DetailGame.image} alt="" />
+        <img src={DetailGame.image} alt="juego" />
         <h3>Platforms: </h3>
         <p>{platforms}</p>
         <p>Released:  {DetailGame.released}</p>
