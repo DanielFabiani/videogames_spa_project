@@ -10,7 +10,7 @@ const Pagination = ({currentPage, gamesPerPage, allVideogames, paginate}) => {
   for (let i = 0; i < totalPages; i++) {
     pages.push(i + 1);
   }
-  console.log(pages);
+  //console.log(pages);
 
   return (
     <nav className={style.paginationContainer}>

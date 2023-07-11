@@ -1,7 +1,7 @@
 .primaryButton{
   border: 0;
   background-image: linear-gradient(150deg, #192b37, #5f717f, #cedbe4);
-  border-radius: 12px;
+  border-radius: 10px;
   color: #cedbe4;
   display: flex;
   font-size: 18px;
@@ -13,8 +13,8 @@
 
 .primaryButton span{
   background-color: #0e1213;
-  padding: 16px 24px;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
   transition: .5s;
 }
 

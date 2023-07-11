@@ -10,7 +10,6 @@ import Card from '../../components/card/Card';
 import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
 import { NavLink } from 'react-router-dom';
 
-
 const HomePage = () => {
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
@@ -59,37 +58,44 @@ const HomePage = () => {
   return (
     <div className={styles.homePageContainer}>
 
-      <div className={styles.searchFilterContainer}>
+      <div className={styles.orderContainer}>
+        
         <SearchBar />
 
-        <PrimaryButton>
-          <NavLink to="/form">Create a game</NavLink>
-        </PrimaryButton>
-
-        <div className={styles.orderContainer}>
-
-          {/* filtro por genero */}
-          <GenderFilter />
-          {/* orden alfabético */}
-          <div className={styles.orderAscDesc}>
-            <select onChange={(e)=> handleOrderAscDesc(e)}>
-              <option value="default" >Select by order</option>
-              <option value="asc" >Ascendent</option>
-              <option value="desc">Descendent</option>
-            </select>
-          </div>
-
-          {/* orden por rating */}
-          <div className={styles.orderByRating}>
-            <select onChange={(e)=> handleOrderRating(e)}>
-              <option value="default" >Select by rating</option>
-              <option value="best" >Best</option>
-              <option value="worst">Worst</option>
-            </select>
-          </div>
+        {/* filtro por genero */}
+        <GenderFilter />
+        {/* orden alfabético */}
+        <div className={styles.orderAscDesc}>
+          <select onChange={(e)=> handleOrderAscDesc(e)}>
+            <option value="default" >Select by order</option>
+            <option value="asc" >Ascendent</option>
+            <option value="desc">Descendent</option>
+          </select>
         </div>
+
+        {/* orden por rating */}
+        <div className={styles.orderByRating}>
+          <select onChange={(e)=> handleOrderRating(e)}>
+            <option value="default" >Select by rating</option>
+            <option value="best" >Best</option>
+            <option value="worst">Worst</option>
+          </select>
+        </div>
+
+        <PrimaryButton>
+          <NavLink to="/form">Create game</NavLink>
+        </PrimaryButton>
+        
       </div>
 
+      <div className={styles.paginationContainer}>
+        <Pagination 
+          currentPage={currentPage} /* pagina actual */
+          gamesPerPage={gamesPerPage} /* juegos por paginas */
+          allVideogames={allVideogames.length} /* todos los juegos */
+          paginate={paginate} /* función para paginar */
+        />
+      </div>
       
       <div className={styles.paginationContainerCards}>
         {

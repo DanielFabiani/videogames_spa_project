@@ -3,7 +3,6 @@ import styles from './SearchBar.module.css';
 import { useDispatch } from 'react-redux';
 import { searchVideogames } from '../../redux/actions/actions';
 
-
 const SearchBar = (props) => {
   const dispatch = useDispatch()
   const [name, setName] = useState('');
@@ -22,6 +21,7 @@ const SearchBar = (props) => {
   
   return (
     <div className={styles.searchBarContainer}>
+
 
       <input onChange={handleInputChange} 
         type="search" 

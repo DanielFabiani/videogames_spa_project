@@ -44,7 +44,7 @@ const Form = () => {
     image: '',
     released: '',
     rating: '',
-    genres: [],
+    genres: '',
   })
 
   // errores en el formularios
@@ -70,7 +70,7 @@ const Form = () => {
       image: '',
       released: '',
       rating: '',
-      genres: [],
+      genres: '',
     })
   }
 
