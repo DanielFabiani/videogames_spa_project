@@ -45,13 +45,6 @@ export const searchVideogames = (name) => {
   }
 };
 
-// filtro por genero
-export const filterGenre = (payload) => {
-  return{
-    type: FILTER_GENRE,
-    payload
-  }
-}
 export const AllGenres = () => {
   return async (dispatch) => {
     try {
@@ -64,6 +57,14 @@ export const AllGenres = () => {
     } catch (error) {
       console.log(error.message);
     }
+  }
+}
+
+// filtro por genero
+export const filterGenre = (payload) => {
+  return{
+    type: FILTER_GENRE,
+    payload
   }
 }
 
