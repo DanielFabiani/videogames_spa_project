@@ -7,6 +7,8 @@ export const FILTER_GENRE = 'FILTER_GENRE';
 export const ALL_GENRE = 'ALL_GENRE';
 export const SORT_VIDEOGAMES_ASC_DESC = 'SORT_VIDEOGAMES_ASC_DESC';
 export const SORT_VIDEOGAMES_RATING = 'SORT_VIDEOGAMES_RATING';
+export const RESET_FILTER_GENRES = 'RESET_FILTER_GENRES';
+export const RESET_ORDER = 'RESET_ORDER';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -83,3 +85,19 @@ export const orderVideogamesByRating = (payload) => {
     payload
   }
 };
+
+//reseteo de los filtros
+export const resetGenres = (payload) => {
+  return {
+    type: RESET_FILTER_GENRES,
+    payload
+  }
+}
+
+//reset de los ordenes
+export const resetOrder = (payload) => {
+  return {
+    type: RESET_ORDER,
+    payload
+  }
+}

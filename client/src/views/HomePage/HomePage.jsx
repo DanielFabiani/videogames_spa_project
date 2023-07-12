@@ -9,6 +9,7 @@ import Pagination from '../../components/pagination/Pagination';
 import Card from '../../components/card/Card';
 import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
 import { NavLink } from 'react-router-dom';
+import ResetFilters from '../../components/resetButtons/ResetFilters';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -49,11 +50,6 @@ const HomePage = () => {
     dispatch(orderVideogamesByRating(e.target.value))
     setAux(!aux);
   }
-  //boton reseteo de filtros
-/*   const handlerAll = (e)=> {
-    e.preventDefault();
-    dispatch(getVideogames())
-  } */
 
   return (
     <div className={styles.homePageContainer}>
@@ -73,7 +69,7 @@ const HomePage = () => {
           </select>
         </div>
 
-        {/* orden por rating */}
+        {/* boton de reseteo de filtros */}
         <div className={styles.orderByRating}>
           <select onChange={(e)=> handleOrderRating(e)}>
             <option value="default" >Select by rating</option>
@@ -81,6 +77,9 @@ const HomePage = () => {
             <option value="worst">Worst</option>
           </select>
         </div>
+
+      {/* orden por rating */}
+        <ResetFilters />
 
         <PrimaryButton>
           <NavLink to="/form">Create game</NavLink>

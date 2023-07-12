@@ -3,6 +3,8 @@ import {
   DETAIL_VIDEOGAMES,
   FILTER_GENRE,
   GET_VIDEOGAMES,
+  RESET_FILTER_GENRES,
+  RESET_ORDER,
   SEARCH_VIDEOGAMES,
   SORT_VIDEOGAMES_ASC_DESC,
   SORT_VIDEOGAMES_RATING,
@@ -15,7 +17,6 @@ const initialState = {
   SearchGame: [], //estado name
   FilteredGenres: [],
   genres: [],
-  AllVideogames: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -105,8 +106,18 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           Videogames: videogamesSortRating
-
         };
+
+      case RESET_FILTER_GENRES:
+        return {
+          ...state,
+          Videogames: state.VideogamesCopy
+        }
+      case RESET_ORDER:
+        return {
+          ...state,
+          Videogames: [...state.VideogamesCopy]
+        }
     default:
       return { ...state };
   }
