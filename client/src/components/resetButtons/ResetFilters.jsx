@@ -1,16 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { resetGenres, resetOrder } from '../../redux/actions/actions';
+//import { useDispatch } from 'react-redux';
+//import { resetGenres, resetOrder } from '../../redux/actions/actions';
 import SecondaryButton from '../buttons/secondaryButton/SecondaryButton'
 
 
 const ResetFilters = () => {
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
-  const handlerButton = (e)=> {
-    e.preventDefault();
-    dispatch(resetGenres())
-    dispatch(resetOrder())
+  const handlerButton = ()=> {
+    setTimeout(function() {
+      window.location.reload()
+    }, 500)
+    
   }
 
   return (

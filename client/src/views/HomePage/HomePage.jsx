@@ -10,6 +10,7 @@ import Card from '../../components/card/Card';
 import PrimaryButton from '../../components/buttons/primaryButton/PrimaryButton';
 import { NavLink } from 'react-router-dom';
 import ResetFilters from '../../components/resetButtons/ResetFilters';
+import Loading from '../../components/loading/Loading';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const HomePage = () => {
 
   //obtener el corte de los games por pagina
   const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
+  console.log(currentGames, 'este');
 
   //paginado
   const paginate = (pageNumber) => {
@@ -98,20 +100,25 @@ const HomePage = () => {
       
       <div className={styles.paginationContainerCards}>
         {
-          currentGames?.map(game => {
-            return (
-              <Card
-                key={game.id}
-                id={game.id}
-                name={game.name}
-                image={game.image}
-                genres={game.genres}
-                rating={game.rating}
-              />
-            )
-          })
+          currentGames[0] ? (
+            currentGames?.map(game => {
+              return (
+                <Card
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  image={game.image}
+                  genres={game.genres}
+                  rating={game.rating}
+                />
+              )
+            })
+          ) : (
+            <Loading/>
+          )
         }
       </div>
+
       {/* paginado */}
       <div className={styles.paginationContainer}>
         <Pagination 
