@@ -29,7 +29,6 @@ const HomePage = () => {
 
   //obtener el corte de los games por pagina
   const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
-  console.log(currentGames, 'este');
 
   //paginado
   const paginate = (pageNumber) => {

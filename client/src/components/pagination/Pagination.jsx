@@ -16,7 +16,11 @@ const Pagination = ({currentPage, gamesPerPage, allVideogames, paginate}) => {
     <nav className={style.paginationContainer}>
       {
         pages && pages.map(page => (
-          <button key={page} onClick={() => paginate(page)}>{page}
+          <button 
+            key={page} 
+            onClick={() => paginate(page)}
+            className={`${style.pageButton} ${currentPage === page ? style.active : ''}`}
+          >{page}
           </button>
         ))
       }
