@@ -6,7 +6,7 @@ import HomePage from "./views/HomePage/HomePage";
 import NavBar from "./components/navBar/NavBar";
 import Detail from "./components/detail/Detail";
 import Form from "./views/Form/Form";
-/* import NameVideogames from "./views/NameVideogames/NameVideogames"; */
+import NameVideogames from "./views/NameVideogames/NameVideogames";
 import axios from "axios";
 axios.defaults.baseURL = 'https://videogamesspaproject-production.up.railway.app/';
 
@@ -23,7 +23,7 @@ function App() {
         <Route path="/home" element={ <HomePage /> } />
         <Route path="/detail/:id" element={ <Detail /> } />
         <Route path="/form" element={ <Form /> } />
-        {/* <Route path="/name" element={ <NameVideogames />} /> */}
+        <Route path="/name" element={ <NameVideogames />} />
       </Routes>
       
     </div>
