@@ -31,7 +31,7 @@ const SearchBar = (props) => {
       <button 
         className={styles.searchButton}
         type="submit" 
-        onClick={handleSubmitSearch}
+        onClick={(e)=>handleSubmitSearch(e)}
       >
         <span>Find game</span>
       </button>
