@@ -6,6 +6,7 @@ import {
   RESET_FILTER_GENRES,
   RESET_ORDER,
   SEARCH_VIDEOGAMES,
+  SET_PAGE,
   SORT_VIDEOGAMES_ASC_DESC,
   SORT_VIDEOGAMES_RATING,
 } from "./actions/actions";
@@ -17,6 +18,7 @@ const initialState = {
   SearchGame: [], //estado name
   FilteredGenres: [],
   genres: [],
+  numPage: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +28,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         Videogames: action.payload,
         VideogamesCopy: action.payload,
+        DetailGame: []
       };
     case DETAIL_VIDEOGAMES:
       return {
@@ -55,6 +58,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Videogames: gamesGenres,
+        numPage: 1,
       };
     
     case SORT_VIDEOGAMES_ASC_DESC:
@@ -78,8 +82,9 @@ const reducer = (state = initialState, action) => {
           return 0;
         })
       return {
-        ...state,
-        Videogames: videogamesSort
+        ...state, 
+        Videogames: videogamesSort,
+        numPage: 1,
       };
 
       case SORT_VIDEOGAMES_RATING:
@@ -105,7 +110,8 @@ const reducer = (state = initialState, action) => {
           })
         return {
           ...state,
-          Videogames: videogamesSortRating
+          Videogames: videogamesSortRating,
+          numPage: 1,
         };
 
       case RESET_FILTER_GENRES:
@@ -118,6 +124,12 @@ const reducer = (state = initialState, action) => {
           ...state,
           Videogames: [...state.VideogamesCopy]
         }
+
+        case SET_PAGE:
+          return {
+            ...state,
+            numPage: action.payload // seteo la pagina en 1
+          }
     default:
       return { ...state };
   }

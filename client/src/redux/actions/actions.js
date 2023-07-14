@@ -9,6 +9,7 @@ export const SORT_VIDEOGAMES_ASC_DESC = 'SORT_VIDEOGAMES_ASC_DESC';
 export const SORT_VIDEOGAMES_RATING = 'SORT_VIDEOGAMES_RATING';
 export const RESET_FILTER_GENRES = 'RESET_FILTER_GENRES';
 export const RESET_ORDER = 'RESET_ORDER';
+export const SET_PAGE = 'SET_PAGE';
 
 // conexión par traer todas las cartas 
 export const getVideogames = () => {
@@ -99,5 +100,13 @@ export const resetOrder = (payload) => {
   return {
     type: RESET_ORDER,
     payload
+  }
+}
+
+//seteo de pagina 1 al aplicar los filtros
+export const setPage = (page) =>{
+  return {
+    type: SET_PAGE,
+    payload: page
   }
 }

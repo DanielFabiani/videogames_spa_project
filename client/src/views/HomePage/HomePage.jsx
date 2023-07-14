@@ -17,12 +17,14 @@ const HomePage = () => {
   const [aux, setAux] = useState(false);
 
   const allVideogames = useSelector((state) => state.Videogames);
+  const numPage = useSelector((state) => state.numPage);
+
   //estados locales para el paginado
-  const [currentPage, setCurrentPage] = useState(1);
+  //const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(15);
 
   //obtener el indice del ultimo game
-  const indexOfLastGame = currentPage * gamesPerPage;
+  const indexOfLastGame = numPage * gamesPerPage;
 
   //obtener el indice del primer game
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
@@ -31,9 +33,9 @@ const HomePage = () => {
   const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
 
   //paginado
-  const paginate = (pageNumber) => {
+  /* const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-  }
+  } */
 
   useEffect(() => {
     dispatch(getVideogames())
@@ -51,6 +53,8 @@ const HomePage = () => {
     dispatch(orderVideogamesByRating(e.target.value))
     setAux(!aux);
   }
+
+  //const [activeGenre, setActiveGenre] = useState(null);
 
   return (
     <div className={styles.homePageContainer}>
@@ -90,10 +94,10 @@ const HomePage = () => {
 
       <div className={styles.paginationContainer}>
         <Pagination 
-          currentPage={currentPage} /* pagina actual */
+          /* currentPage={currentPage}  *//* pagina actual */
           gamesPerPage={gamesPerPage} /* juegos por paginas */
           allVideogames={allVideogames.length} /* todos los juegos */
-          paginate={paginate} /* función para paginar */
+          /* paginate={paginate} */ /* función para paginar */
         />
       </div>
       
@@ -121,10 +125,10 @@ const HomePage = () => {
       {/* paginado */}
       <div className={styles.paginationContainer}>
         <Pagination 
-          currentPage={currentPage} /* pagina actual */
+         /*  currentPage={currentPage} */ /* pagina actual */
           gamesPerPage={gamesPerPage} /* juegos por paginas */
           allVideogames={allVideogames.length} /* todos los juegos */
-          paginate={paginate} /* función para paginar */
+          /* paginate={paginate} */ /* función para paginar */
         />
       </div>
     </div>
