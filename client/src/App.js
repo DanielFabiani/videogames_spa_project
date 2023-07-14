@@ -8,7 +8,7 @@ import Detail from "./components/detail/Detail";
 import Form from "./views/Form/Form";
 /* import NameVideogames from "./views/NameVideogames/NameVideogames"; */
 import axios from "axios";
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://videogamesspaproject-production.up.railway.app/';
 
 
 function App() {
