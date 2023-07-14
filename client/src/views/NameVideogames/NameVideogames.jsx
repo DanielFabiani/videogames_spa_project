@@ -5,7 +5,7 @@ import Card from "../../components/card/Card";
 
 const NameVideogames = (props) => {
   
-  const searchVideogame = useSelector((state) => state.SearchGame);
+  const searchVideogame = useSelector((state) => state.Videogames);
   
   return (
     <div className={styles.nameGameContainer}>

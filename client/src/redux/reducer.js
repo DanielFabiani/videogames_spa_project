@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
     case DETAIL_VIDEOGAMES:
       return {
         ...state,
-        DetailGame: action.payload,
+        Videogames: action.payload,
       };
     case SEARCH_VIDEOGAMES:
       return {

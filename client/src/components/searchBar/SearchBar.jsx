@@ -23,7 +23,7 @@ const SearchBar = (props) => {
     <div className={styles.searchBarContainer}>
 
 
-      <input onChange={handleInputChange} 
+      <input onChange={(e)=>handleInputChange(e)} 
         type="search" 
         placeholder="Insert game name"
         value={name}
