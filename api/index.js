@@ -20,12 +20,13 @@
 const server = require('./src/app.js');
 const allGenres = require('./src/controllers/getGenresController.js');
 const { conn } = require('./src/db.js');
+require('dotenv').config();
 
 // Syncing all the models at once.
 //! una vez terminado el desarrollo cambiar a {force: false}
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT, () => {
     allGenres();
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening', process.env.PORT); // eslint-disable-line no-console
   });
 });

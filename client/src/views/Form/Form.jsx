@@ -60,7 +60,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/videogames',form)
+    axios.post('/videogames', form)
       .then(res=>alert('Game created successfully'))
       .catch(err=>alert('Please fill in all the fields'));
     setForm({
