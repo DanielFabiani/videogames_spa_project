@@ -33,12 +33,12 @@ const reducer = (state = initialState, action) => {
     case DETAIL_VIDEOGAMES:
       return {
         ...state,
-        Videogames: action.payload,
+        DetailGame: action.payload,
       };
     case SEARCH_VIDEOGAMES:
       return {
         ...state,
-        SearchGame: action.payload,
+        Videogames: action.payload,
       };
     case ALL_GENRE:
       return {
