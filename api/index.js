@@ -24,7 +24,7 @@ require('dotenv').config();
 
 // Syncing all the models at once.
 //! una vez terminado el desarrollo cambiar a {force: false}
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(process.env.PORT, () => {
     allGenres();
     console.log('%s listening', process.env.PORT); // eslint-disable-line no-console

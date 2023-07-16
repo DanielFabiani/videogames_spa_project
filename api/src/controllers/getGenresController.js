@@ -29,20 +29,4 @@ const allGenres = async () => {
 }
 module.exports = allGenres;
 
-/*const genrApi = await axios.get(URL);
-  genrApi = genrApi.data.results;
-  genrApi = genrApi?.map((genre) => {
-      return {
-        name: genre.name,
-      }
-  });
-  genrApi.forEach(async (genre) => {
-      await Genre.findOrCreate({
-          where: {
-              name: genre.name,
-          },
-      });
-  });
-  let genres = await Genre.findAll();
-  return genres; */
 

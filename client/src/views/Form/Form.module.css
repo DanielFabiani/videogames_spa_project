@@ -12,11 +12,13 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
-  margin: 28px;
+  margin: 0 28px;
   color: #cedbe4;
   gap: 16px;
-  border: 1px solid #cedbe4 ;
+  /* border: 1px solid #cedbe4 ; */
   border-radius: 20px;
+  background: #192b37;
+  box-shadow: 6px 6px 28px 8px rgba(95,113,127,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .formContainer form section{
@@ -28,16 +30,29 @@
   margin: 16px 16px 0 16px;
   gap: 16px
 }
+
 .formContainer label {
   width: 120px;
 }
 .formContainer p {
   margin-top: 0;
+  margin-bottom: 0;
   padding-top: 0;
   color: #d6c689;
 }
 .formContainer input {
   width: 150px;
+  border: 1px solid #d6c689;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.formContainer select {
+  width: 150px;
+  border: 1px solid #d6c689;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .formContainer form input span {

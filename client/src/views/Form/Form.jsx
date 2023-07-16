@@ -10,13 +10,19 @@ const validate = (form) =>{
   let errors = {}
   if (!form.name) {
     errors.name = 'Insert a validate name👆🏻'
+  } else if (!/^[a-zA-Z\s]+$/.test(form.name)) {
+    errors.name = 'The name must only contain letters and spaces';
   }
   if (!form.description) {
     errors.description = 'Insert a validate description👆🏻'
+  } else if (form.description.length < 10) {
+    errors.description = 'Description must be at least 10 characters';
   }
+
   if (!form.platforms) {
     errors.platforms = 'Insert a validates platforms👆🏻'
   }
+
   if (!form.image) {
     errors.image = 
     !form.image.includes('https://' || 'http://')
@@ -28,9 +34,11 @@ const validate = (form) =>{
   }
   if (!form.rating) {
     errors.rating = 'Insert a validate rating👆🏻'
-  }
-  if (!form.genre) {
-    errors.genres = 'Insert a validate genres👆🏻'
+  } else if (!/^[1-5]$/.test(form.rating)) {
+    errors.rating = 'The rating must be between 1 and 5';
+    }
+  if (!form.genres.length === 0) {
+    errors.genres = 'Select at least one genre👆🏻'
   }
   return errors;
 }
@@ -44,7 +52,7 @@ const Form = () => {
     image: '',
     released: '',
     rating: '',
-    genres: '',
+    genres: [],
   })
 
   // errores en el formularios
@@ -70,7 +78,7 @@ const Form = () => {
       image: '',
       released: '',
       rating: '',
-      genres: '',
+      genres: [],
     })
   }
 
