@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Detail.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,15 @@ const Detail = () => {
     dispatch(detailVideogames(id));
   }, [dispatch, id]);
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const DetailGame = useSelector((state) => state.DetailGame)
 
   const platforms = DetailGame.platforms;
@@ -22,7 +31,9 @@ const Detail = () => {
   return (
     <>
       {
-        DetailGame.name ? (
+        loading ? (
+          <Loading />
+        ) : (
           <div className={styles.detailContainer}>
             <div className={styles.detailImage}>
               <h1>{DetailGame.name}</h1>
@@ -41,8 +52,6 @@ const Detail = () => {
               
             </div>
           </div>
-        ) : (
-          <Loading />
         )
       }
     </>

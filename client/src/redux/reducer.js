@@ -28,7 +28,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         Videogames: action.payload,
         VideogamesCopy: action.payload,
-        DetailGame: []
       };
     case DETAIL_VIDEOGAMES:
       return {
