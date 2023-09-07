@@ -13,23 +13,14 @@ Las principales características de la aplicación son:
 - **Consulta a API externa**: La aplicación se conecta a una API externa para obtener datos actualizados sobre videojuegos, incluyendo información sobre los últimos lanzamientos, valoraciones de usuarios y detalles de los desarrolladores.
 - **Creación de videojuegos**: Además de explorar juegos existentes, los usuarios pueden utilizar las herramientas integradas en la aplicación para crear y personalizar su propio videojuego.
 
-## **Capturas de pantalla**
-
 ## **Tecnologías utilizadas**
 
 - **Frontend**: JavaScript, React, Redux, HTML, CSS
 - **Backend**: JavaScript, Node.js, Express, axios
 - **Base de datos**: SQL, Sequelize
 
-## **Contribuciones**
-
-¡Las contribuciones son bienvenidas! Si tienes ideas, sugerencias o mejoras para el proyecto, siéntete libre de abrir un issue o enviar una solicitud de pull.
-
-## **Licencia**
-
-**[MIT](https://opensource.org/licenses/MIT)** (Incluye aquí el enlace a la licencia que estés utilizando para tu proyecto)
-
 ## **Contacto**
 
 - **[Correo electrónico](mailto:danielfabiani.dev@gmai.com)**
 - **[Perfil de GitHub](https://github.com/DanielFabiani?tab=repositories)**
+- **[Videogames App](https://videogames-spa-project.vercel.app/)**
